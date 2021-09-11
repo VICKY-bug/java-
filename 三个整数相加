@@ -1,0 +1,16 @@
+package com.itheima.first;
+import java.util.Scanner;                                    //导入java.util
+public class ex1 {                                           //定义一个类ex1
+	public static void main(String[] args) {
+		   int a,b,c;
+		   double sum;
+		   System.out.println("请输入三个正数：\n");
+		   Scanner console = new Scanner(System.in);              //scanner必备
+		   a = console.nextInt();                                 //console是个可改变的变量 
+		   b = console.nextInt();                                 //获取abc的值
+		   c = console.nextInt();
+		   sum=a+b+c;
+		   System.out.println(sum);
+		   console.close();                                       //释放多余的内存，不溢出
+      }
+}
