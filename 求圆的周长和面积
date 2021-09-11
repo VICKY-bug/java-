@@ -1,0 +1,17 @@
+package com.itheima.first;
+import java.util.*;                     //导入
+public class Area {                     //定义
+		public static void main(String[]args) {
+			int r;
+			double area;
+			double zhou;
+			System.out.print("请输入圆的半径:\n");
+			Scanner console = new Scanner(System.in);
+			r = console.nextInt();
+			area=r*r*3.14;
+			zhou=2*r*3.14;
+			System.out.println(area);
+			System.out.println(zhou);
+		}
+
+}
