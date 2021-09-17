@@ -1,0 +1,50 @@
+1.1-100的和
+package com.itheima.second;
+
+public class one {
+	public static void main(String[] args) {
+        int num=0;
+        for(int i=1;i<100;i+=2){
+            num+=i;
+        }
+        System.out.println("一百以内奇数的和为："+num);
+    }
+}
+
+2.1+···+99=的和
+package com.itheima.second;
+
+public class two {
+	public static void main(String[] args) {
+		int i;
+		int sum=0;
+		for(i=1;i<100;i++) {
+			if(i%2!=0)
+			{
+				sum+=i;
+			}
+		}		
+		System.out.println("1+···+99="+sum);
+	}
+}
+
+3.输入任意个实数，累加求和，由用户选择是都继续输入下一个数
+import java.util.Scanner;
+public class san {
+public static void main(String[] args) {
+		double sum=0.0;
+		//点ctrl+2后点L
+		Scanner sc = new Scanner(System.in);
+		String s;
+		do {
+			System.out.println("请输入一个数：");
+		    double d = sc.nextDouble();
+		    sum+=d;
+		    System.out.println("是否继续输入下一个数？（y/Y）");
+		    //接收一个字符串
+		   s= sc.next();
+		}while(s.equals("y")||s.equals("Y")); 
+		System.out.println(sum);
+	}
+}
+
