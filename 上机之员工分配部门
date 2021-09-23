@@ -1,0 +1,32 @@
+package com.itheima.first;
+
+import java.util.Scanner;
+
+public class 上机2第wu题 {
+
+		public static void main(String[] args) {
+			
+			System.out.println("请输入新员工的姓名：");
+			Scanner sc=new Scanner(System.in);
+			String xm;
+			xm=sc.next();
+			System.out.println("请输入新员工应聘的语言：");
+			String s;
+			s=sc.next();
+			if(s.equals("Java")) {	
+				System.out.println(xm+"被分配到"+s+"程序开发部门");
+	}
+			else if(s.equals("C#")) {	
+				System.out.println(xm+"被分配到"+s+"程序开发部门");
+	}
+			else if(s.equals("asp.net")) {	
+				System.out.println(xm+"被分配到"+s+"程序开发部门");
+	}
+			else if(s.equals("前端")) {	
+				System.out.println(xm+"被分配到"+s+"程序开发部门");
+	}
+			else{	
+				System.out.println(xm+"没有相应的匹配的部门");
+	}
+  }		
+}
