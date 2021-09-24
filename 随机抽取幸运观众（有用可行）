@@ -1,0 +1,30 @@
+package com.itheima.third;
+import java.util.Scanner;                                     //导Scanner包,用于用户输入
+import java.util.Random;                                      //导Random包，随机数
+public class wu {                                             //创建类
+    public static void addAudience(String[] audience){        //创建成员方法addAudience，用于输入观众姓名
+        Scanner sc =new Scanner(System.in);                   //实例化对象Scanner给对象sc,用于接收用户输入
+        for(int i=0;i<audience.length;i++){                   //for循环，循环次数为数组audience的长度
+            System.out.println("请输入第"+(i+1)+"个观众姓名");  //提示用户进行输入观众姓名
+            audience[i]=sc.next();                            //用户输入的值会按照序列依次放入audience数组中
+        }
+    }
+    public static void printAudience(String[] audience){      //创建方法printAudience，用于输出audience中的值，即之前输入进去的观众姓名
+        for(int i=0;i<audience.length;i++){
+            System.out.println(audience[i]);
+        }
+    }
+    public static String randomAudience(String[] audience){    //创建randomAudience方法，使用随机数类随机返回数组auience中的一个值
+        Random random = new Random();                          //实例化Random对象给对象random
+        int index = random.nextInt(audience.length);           //新建变量index用于接收产生的随机数
+        return audience[index];                                //return返回一个数组中的值到调用该方法的地方
+    }
+    public static void main(String[] args){                    //主方法，程序从此处开始执行
+        String[] audience = new String[3];                     //声明并创建一个数组audience并附长度为3
+        addAudience(audience);                                 //调用addAudience方法，输入观众姓名
+        printAudience(audience);                               //调用printAudience方法，输出观众姓名
+        String randomAud=randomAudience(audience);            //设置randomAud变量，接收幸运观众姓名
+        System.out.println("抽取的幸运观众是"+randomAud);       //输出幸运观众姓名
+    }
+}
+
