@@ -1,0 +1,28 @@
+package com.itheima.third;
+import java.util.Scanner;
+//public class one {	
+//	    public static void main(String[] args) {
+//	        for (int i = 1; i <= 5; i++) {
+//	            System.out.print("*");	            
+//	            for (int j = 1; j <= 5; j++) {
+//	                System.out.print("*");
+//	            }
+//	            System.out.println();
+//	        }
+//	    }
+//	}
+public class one {
+	public static void main(String[] args) {
+		printRec(3,4);
+		printRec(5,6);
+		printRec(10,8);
+}	
+	public static void printRec(int x,int y) {
+	for(int i=0;i<x;i++) {              //控制行数
+		for(int j=0;j<y;j++) {            //控制列数
+			System.out.print("*"+"\t");
+		}
+		System.out.println();
+	}
+}
+}
