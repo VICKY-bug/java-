@@ -1,0 +1,87 @@
+package com.itheima.second;
+import java.util.Scanner;
+public class one {
+	public static void main(String[] args) {		
+ 	   System.out.println("——————————黑马小商城——————————");
+ 	   System.out.println("1.牙刷的价格为：8.8元");
+ 	   System.out.println("2.毛巾的价格为：10元");
+ 	   System.out.println("3.水杯的价格为：18.8元");
+ 	   System.out.println("4.苹果的价格为：12.5元");
+ 	   System.out.println("5.香蕉的价格为：15.5元");
+ 	   System.out.println("请输入其他需要购买商品的序列号：");
+ 	   int num;
+ 	   Scanner console = new Scanner(System.in);
+			num = console.nextInt();
+ 	   //int n=8;
+ 	   int x;
+ 	   double y;
+ 	   String q;
+ 	   Scanner w= new Scanner(System.in);  
+ 	   switch(num)
+ 	   {
+ 	      
+ 	    case 1:
+ 	    
+ 		   System.out.println("请输入你需要购买牙刷的数量：");
+ 		   Scanner sc = new Scanner(System.in);
+		   x = sc.nextInt();
+		   y=8.8*x;
+		   System.out.println("你购买了"+x+"个，需要花费"+y+"元");
+		   System.out.println("需要继续购买输入Y,否则输入N");
+		   do {
+			    q=w.next();
+			    if(q==Y)
+			    {
+			    	
+			    }
+			   System.out.println("请输入其他需要购买商品的序列号：");
+			  
+			   
+		  
+		   }
+		   while(q.equals("Y"));
+		   break;
+ 	    case 2:
+ 	    	
+ 	    	System.out.println("请输入你需要购买毛巾的数量：");
+ 	    	Scanner a = new Scanner(System.in);
+			x = a.nextInt();
+			y=10*x;
+			System.out.println("你购买了"+x+"个，需要花费"+y+"元");
+			System.out.println("需要继续购买输入Y,否则输入N");
+			q=w.next();
+			break;
+ 	    case 3:
+ 	    	
+ 	    	System.out.println("请输入你需要购买水杯的数量：");
+ 	    	Scanner s = new Scanner(System.in);
+			x = s.nextInt();
+			y=18.8*x;
+			System.out.println("你购买了"+x+"个，需要花费"+y+"元");
+			System.out.println("需要继续购买输入Y,否则输入N");
+			q=w.next();
+			break;
+ 	    case 4:
+ 	    	
+ 	    	System.out.println("请输入你需要购买苹果的数量：");
+ 	    	Scanner d = new Scanner(System.in);
+			x = d.nextInt();
+			y=12.5*x;
+			System.out.println("你购买了"+x+"个，需要花费"+y+"元");
+			System.out.println("需要继续购买输入Y,否则输入N");
+			q=w.next();
+			break;
+ 	   case 5:
+	    	
+	    	System.out.println("请输入你需要购买香蕉的数量：");
+	    	Scanner f = new Scanner(System.in);
+			x = f.nextInt();
+			y=15.5*x;
+			System.out.println("你购买了"+x+"个，需要花费"+y+"元");
+			System.out.println("需要继续购买输入Y,否则输入N");
+			q=w.next();
+			break;
+ 	    }
+ 	   
+	}
+}
