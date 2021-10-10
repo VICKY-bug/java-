@@ -11,7 +11,11 @@ public class one {
     }
 }
 
-2.1+···+99=的和
+
+2．请编写程序，实现计算“1+3+5+7+…+99”的值，要求如下：
+1)	使用循环语句实现自然数1~99的遍历；
+2)	在遍历过程中，通过条件判断当前遍历的数是否为奇数，如果是就累加，否则不加。
+
 package com.itheima.second;
 
 public class two {
@@ -28,7 +32,7 @@ public class two {
 	}
 }
 
-3.输入任意个实数，累加求和，由用户选择是都继续输入下一个数
+3.从键盘输入任意个实数，累加求和。在输入时，由用户选择是否继续输入下一个数。
 import java.util.Scanner;
 public class san {
 public static void main(String[] args) {
