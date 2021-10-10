@@ -1,0 +1,82 @@
+随着科技的发展，手机的使用已经普及到每个家庭甚至个人，手机的属性越来越强大，功能也越来越多，因此人们在生活中越来越依赖于手机。
+任务要求，使用所学知识编写一个手机属性及功能分析程序设计，测试各个手机的属性及功能。
+使用手机时，输出当前手机的各个属性参数以及正在使用的功能。
+（1）通过任务描述可知，需要定义一个手机类Phone实现手机的概念。
+（2）手机具有属性：品牌（brand）、型号（type）、价格（price）、操作系统（os）和内存（memory）。因此，需要在手机类中定义品牌（brand）、型号（type）、价格（price）、操作系统（os）和内存（memory）的变量。
+（3）手机具有功能：查看手机信息（about（））、打电话（call（String no））、玩游戏（playGame()）、下载音乐（downloadMusic()）、播放音乐（playMusic()）。所以，可以定义对应的方法about（）、call（）、playGame()、downloadMusic()、playMusic()。
+package com.itheima.four;
+
+public class PhoneTest {
+	public static void main(String[] args) {
+		Phone p1=new Phone();
+	p1.brand="苹果";
+	p1.type="iphoneX";
+	p1.os="ios";
+	p1.price=8888;
+	p1.memory=16;
+	p1.about();
+	p1.call(3);
+	p1.playGame();
+	p1.playmusic("我的中国心");
+	System.out.println("**********************");
+	Phone p2=new Phone("华为","华为荣耀20","Android",6666,16);
+	
+	p2.about();
+	p2.call(3);
+	p2.playGame();
+	p2.playmusic("北京欢迎你");
+}
+}
+
+package com.itheima.four;
+
+public class Phone {
+	String brand;
+	String type;
+	String os;
+	int price;
+	int memory;
+	public static void main(String[] args) {
+		Phone iphone=new Phone();
+		iphone.about();
+	}
+	public void about() {
+		System.out.println("品牌"+brand+"\n"+"型号"+type+"\n"+"操作系统"+os+"\n"+"价格"+price+"\n"+"内存"+memory);
+	}
+	public void call(int num) {
+		System.out.println("自动使用拨号功能：");
+		String no;
+		switch(num) {
+		case 1:
+			no="爷爷的号";break;
+		case 2:
+			no="奶奶的号";break;
+		case 3:
+			no="爸爸的号";break;
+		case 4:
+			no="妈妈的号";break;
+		}
+		
+	}
+	public void playGame() {
+		System.out.println("玩扫雷游戏");
+	}
+	public void downloadmusic(String song) {
+		System.out.println("开始下载......");
+		System.out.println("下载完成......");
+	}
+	public void playmusic(String song) {
+		System.out.println("播放歌曲"+song);
+	}
+	public Phone(String brand,String type,String os,int price,int memory) {
+		this.brand=brand;
+		this.type=type;
+		this.os=os;
+		this.price=price;
+		this.memory=memory;
+	}
+	public Phone() {
+		
+	}
+}
+
