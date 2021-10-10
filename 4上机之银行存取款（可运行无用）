@@ -1,0 +1,26 @@
+package com.itheima.four;
+
+public class BankAccount {	
+		int account_number;                           //账号
+		double leftmoney;                             //存款余额
+public double getleftmoney() {                    //查询余额
+	return leftmoney;
+}
+public void savemoney(double money) {             //存款
+	leftmoney+=money;
+}
+public void getmoney(double money) {              //取款
+	leftmoney-=money;
+}
+public BankAccount(int number,double money) {     //构造方法，初始化变量
+	account_number=number;
+	leftmoney=money;	
+}
+public static void main(String[] args) {
+	BankAccount ba=new BankAccount(123456,500);
+	ba.savemoney(1000);
+	System.out.println("存入1000后，您的余额为"+ba.getleftmoney());
+	ba.getmoney(800);
+	System.out.println("取款800后，您的余额为"+ba.getleftmoney());
+	}
+}
