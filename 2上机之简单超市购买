@@ -1,0 +1,44 @@
+package com.itheima.second;
+
+import java.util.Scanner;
+
+public class san {
+       public static void main(String[] args) {		
+    	   System.out.println("书12，你总共有20元");
+    	   System.out.println("1.铅笔：1");
+    	   System.out.println("2.橡皮：2");
+    	   System.out.println("3.可乐：3");
+    	   System.out.println("4.零食：5");
+    	   System.out.println("请输入其他需要购买商品的序列号：");
+    	   int num;
+    	   Scanner console = new Scanner(System.in);
+			num = console.nextInt();
+    	   int n=8;
+    	   int x;
+    	   int y;
+    	   switch(num)
+    	   {
+    	    case 1:
+    	    	x=8/1;
+    	    	y=8%1;
+    		   System.out.println("还可以买铅笔"+x+"个，还剩"+y+"元");
+    		   break;
+    	    case 2:
+    	    	x=8/2;
+    	    	y=8%2;
+    	    	System.out.println("还可以买橡皮"+x+"个，还剩"+y+"元");
+    	    	break;
+    	    case 3:
+    	    	x=8/3;
+    	    	y=8%3;
+    	    	System.out.println("还可以买可乐"+x+"个，还剩"+y+"元");
+    	    	break;
+    	    case 4:
+    	    	x=8/5;
+    	    	y=8%5;
+    	    	System.out.println("还可以买零食"+x+"个，还剩"+y+"元");
+    	        break;
+    	   }
+    	  
+	}
+}
