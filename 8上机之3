@@ -1,0 +1,39 @@
+package itheima.ba;
+import java.util.Comparator;
+class Teacher3{
+	private String name;
+	private int age;
+	public class Teacher3(String name,int age) {
+		this.name=name;
+		this.age=age;
+	}
+	public String toString() {
+		return name+":"+age;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name=name;
+	}
+	public int getAge(int age) {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age=age;
+	}
+}
+class MyComparator implements Comparator{
+	public int compare(Object obj1,Object obj2) {
+		Teacher3 o1=(Teacher3)obj1;
+		Teacher3 o2=(Teacher3)obj2;
+		if(o1==o1) {
+	}
+		String s1=o1.getName();
+		String s2=o2.getName();
+}
+public class san {
+	public static void main(String[] args) {
+		TreeSet ts=new TreeSet(new);
+	}
+}
