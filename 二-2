@@ -1,0 +1,28 @@
+请使用冒泡排序算法编写程序，实现对数组{25,24,12,76,101,96,28}的排序。
+//定义一个类名为ArraySort的类
+public class ArraySort {
+//主函数
+	public static void main(String[] args) {
+	//定义数组
+		int[] arr = { 25, 24, 12, 76, 101, 96, 28 };
+		//定义外层循环
+		for (int i = 0; i < arr.length - 1; i++) {
+			// 定义内层循环，由于冒泡排序每次都是将最大的数排到最右侧，最大的数已经排好了位置，
+			//无需再排序，所以每次循环都要比上一次循环少比较一次，所以j<arr.length - i - 1
+			for (int j = 0; j < arr.length - i - 1; j++) {
+			// 比较相邻元素
+				if (arr[j] > arr[j + 1]) { 
+					// 下面的三行代码用于交换两个元素
+					int temp = arr[j];
+					arr[j] = arr[j + 1];
+					arr[j + 1] = temp;
+				}
+	}
+		}
+		//定义for循环，对排序完成后的数组进行逐个输出。
+		for (int i = 0; i < arr.length; i++) {
+		// 打印元素和空格
+			System.out.print(arr[i] + " "); 
+		}
+	}
+}
