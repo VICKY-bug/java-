@@ -1,5 +1,10 @@
-2、List的特点是元素有序、可重复。List接口的主要实现类有ArrayList和LinkedList。Set的特点是元素无序、不可重复。Set接口的主要实现类有HashSet和TreeSet。Map的特点是存储的元素是键(Key)、值(Value)映射关系，元素都是成对出现的。Map接口的主要实现类有HashMap和TreeMap。
-2.import java.util.*;
+//选择合适的Map集合保存5位学员的学号和姓名，然后按学号的自然顺序的倒序将这些键值对一 一打印出来。要求如下:
+(1)创建TreeMap集合。
+(2)使用put方法将学号(“1” “2” “3” “4” “5”)和姓名(“Lucy” “John” “Smith” “Aimee” “Amanda”)存储到Map中，存的时候可以打乱顺序观察排序后的效果。
+(3)使用map.keySet()获取键的Set集合。
+(4)使用Set集合的iterator( )方法获得Iterator对象用于迭代键。
+(5)使用Map集合的get( )方法获取键所对应的值。
+import java.util.*;
 public class Test03 {
 	public static void main(String[] args) {
 		TreeMap map = new TreeMap(new MyComparator());
