@@ -1,6 +1,6 @@
-//1、为了使程序能方便的存储和操作数目不固定的一组数据，JDK提供了一套类库，这些类都位
-于java.util包中，统称为集合。集合框架中常用的接口和类有，List、Set、ArrayList、HashSet、Map、HashMap、TreeMap。
-1.import java.util.*;
+//在HashSet集合中添加三个Person对象，把姓名相同的人当做同一个人，禁止重复添加。要求如下:
+//Person类中定义name和age属性，重写hashCode( )方法和equals( )方法，针对Person类的name属性进行比较，如果name相同，hashCode( )方法的返回值相同，equals( )方法返回true。
+import java.util.*;
 public class Test02 {
 	public static void main(String[] args) {
 		HashSet hashSet = new HashSet();
