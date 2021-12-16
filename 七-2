@@ -1,0 +1,27 @@
+//某人在玩游戏的时候输入密码123456后成功进入游戏(输错5次则被强行退出)，要求用程序实现密码验证的过程。要求如下:
+//(1)使用System.in包装为字符流读取键盘输入。
+//(2)BufferedReader对字符流进行包装。调用BufferedReader的readLine( )方法每次读取一行。
+//(3)在for循环中判断输入的密码是否为123456，如果是则打印"恭喜你进入游戏"，并跳出循环，否则继续循环读取键盘输入。
+//(4)当循环完毕，密码还不正确，则打印"密码错误，结束游戏"，并调用System.exit(0)方法结束程序。
+import java.io.*;
+public class Test02 {
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+String password = "";
+		boolean b = false;
+		for (int i = 0; i < 5; i++) {
+			System.out.println("请输入密码:");
+			password = br.readLine();
+			if (password.equals("123456")) {
+				System.out.println("恭喜你进入游戏");
+				b = true;
+				break;
+			}
+		}
+		if (!b) {
+			System.out.println("密码错误，游戏结束");
+			System.exit(0);
+		}
+	}
+}
+
