@@ -1,4 +1,11 @@
-1.public class Test01 {
+//1.编写一个程序，实现字符串大小写的转换并倒序输出。要求如下:
+(1)使用for循环将字符串"HelloWorld"从最后一个字符开始遍历。
+(2)遍历的当前字符如果是大写字符，就使用toLowerCase()方法将其转换为小写字符，反之则使用toUpperCase()方法将其转换为大写字符。
+(3)定义一个StringBuffer对象，调用append()方法依次添加遍历的字符，最后调用StringBuffer对象的toString()方法，并将得到的结果输出。
+————————————————
+版权声明：本文为CSDN博主「怦九」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/hypertext123/article/details/109297536
+public class Test01 {
 	public static void main(String[] args) {
 		String str = "HelloWorld";
 		// 字符串转成char数组
