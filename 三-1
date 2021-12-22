@@ -15,7 +15,7 @@ class Student {
 	public String getName() {
 		return name;
 	}
-public void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	public double getGrade() {
@@ -24,12 +24,17 @@ public void setName(String name) {
 	public void setGrade(double grade) {
 		this.grade = grade;
 	}
-}
-public class Test01 {
-	public static void main(String[] args) {
-		Student stu1 = new Student();
-		stu1.setName("zhangsan");
-		stu1.setGrade(99);
-		Student stu2 = new Student("lisi", 100);
+	public void asd() {
+		System.out.println("我叫"+name+"，成绩为"+grade);
 	}
 }
+	public class Test01 {
+		public static void main(String[] args) {
+			Student stu1 = new Student();
+			stu1.setName("zhangsan");
+			stu1.setGrade(99);
+			stu1.asd();
+			Student stu2 = new Student("lisi", 100);
+			stu2.asd();		
+		}
+	}
