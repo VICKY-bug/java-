@@ -1,0 +1,32 @@
+
+package com.qf.a_day_01;
+
+class Pig{//创建一个类
+	//类中有属性
+	String name;
+	int age;
+	//有方法
+	public void eat(){
+		System.out.println(age+"岁的"+name+"正在吃。。。。");
+	}
+	public Pig(){
+		
+	}
+	public Pig(String name,int age){
+		this.name=name;
+		this.age=age;
+	}
+	
+}
+public class o {
+
+	public static void main(String[] args) {
+	Pig peqi=new Pig();//实例化对象
+	peqi.name="PQ";
+	peqi.age=2;
+	peqi.eat();
+	Pig bajie=new Pig("bajie",999);
+	bajie.eat();	
+	}
+}
+
