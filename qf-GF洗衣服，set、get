@@ -1,0 +1,33 @@
+package com.qf.a_day_01;
+class GF{
+	private String name;
+	private int age;
+	public void setAge(int age){
+		if(age<18||age>30){
+			this.age=18;
+		}else{
+			this.age=age;
+		}
+	}
+	public int getAge(){
+		return age;
+	}
+	public void setName(String name){
+		this.name=name;
+	}
+	public String getName(){
+		return name;
+	}
+	public void wash(){
+		System.out.println(age+"岁的gf"+name+"帮我洗衣服");
+	}
+}
+public class Test {
+public static void main(String[] args) {
+	GF xx=new GF();
+	xx.setName("xx");
+	xx.setAge(25);
+	xx.wash();
+	System.out.println(xx.getName()+"````"+xx.getAge());
+}
+}
