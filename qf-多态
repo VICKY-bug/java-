@@ -1,0 +1,25 @@
+package com.qf.a_o;
+class Animal{
+	public void work(){
+		System.out.println("正在working");
+	}
+	public void eat(){
+		System.out.println("绅士地恰饭");
+	}
+}
+class Dog extends Animal{
+	public void play(){
+		System.out.println("玩。。。");
+	}
+	@Override
+	public void eat(){
+		System.out.println("狼吞虎咽");
+	}
+}
+public class poiy {
+public static void main(String[] args) {
+	Animal animal=new Dog();
+	animal.work();
+	animal.eat();
+}
+}
