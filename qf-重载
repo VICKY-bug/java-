@@ -1,37 +1,35 @@
-package com.qf.a_o;
-class Bike{
+package com.qf_b_abstract;
+
+class Tool{
 	public void run(){
-		System.out.println("自行车再转");
+		System.out.println("交通工具再跑");
 	}
 }
-
-class Car{
-public void run(){
-	System.out.println("汽车行驶");
-}
-}
-
-class Plane{
+class Bike extends Tool{
 	public void run(){
-		System.out.println("飞机起飞");
+		System.out.println("自行车跑");
+	}
+}
+class Car extends Tool{
+	public void run(){
+		System.out.println("车跑");
+	}
+}
+class Plane extends Tool{
+	public void run(){
+		System.out.println("飞机溜了");
 	}
 }
 class Teacher{
-	public void start(Bike bike){
-		bike.run();
-	}
-	public void start(Car car){
-		car.run();
-	}
-	public void start(Plane plane){
-		plane.run();
+	public void drive(Tool tool){
+		tool.run();
 	}
 }
-public class Teast {
+public class www {
 public static void main(String[] args) {
-	Teacher laoli =new Teacher();
-	laoli.start(new Bike());
-	laoli.start(new Car());
-	laoli.start(new Plane());
+	Teacher xx=new Teacher();
+	xx.drive(new Bike());
+	xx.drive(new Plane());
+	xx.drive(new Car());
 }
 }
