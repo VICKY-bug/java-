@@ -1,0 +1,34 @@
+package com.qf_b_abstract;
+//多态的抽象使用
+abstract class Tool{
+	public abstract void run();
+	
+}
+class Bike extends Tool{
+	public void run(){
+		System.out.println("自行车跑");
+	}
+}
+class Car extends Tool{
+	public void run(){
+		System.out.println("车跑");
+	}
+}
+class Plane extends Tool{
+	public void run(){
+		System.out.println("飞机溜了");
+	}
+}
+class Teacher{
+	public void drive(Tool tool){
+		tool.run();
+	}
+}
+public class www {
+public static void main(String[] args) {
+	Teacher xx=new Teacher();
+	xx.drive(new Bike());
+	xx.drive(new Plane());
+	xx.drive(new Car());
+}
+}
