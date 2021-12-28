@@ -1,0 +1,37 @@
+package com.qf.a_o;
+class Bike{
+	public void run(){
+		System.out.println("自行车再转");
+	}
+}
+
+class Car{
+public void run(){
+	System.out.println("汽车行驶");
+}
+}
+
+class Plane{
+	public void run(){
+		System.out.println("飞机起飞");
+	}
+}
+class Teacher{
+	public void start(Bike bike){
+		bike.run();
+	}
+	public void start(Car car){
+		car.run();
+	}
+	public void start(Plane plane){
+		plane.run();
+	}
+}
+public class Teast {
+public static void main(String[] args) {
+	Teacher laoli =new Teacher();
+	laoli.start(new Bike());
+	laoli.start(new Car());
+	laoli.start(new Plane());
+}
+}
