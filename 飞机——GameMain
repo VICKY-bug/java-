@@ -1,0 +1,32 @@
+package  P;
+
+import java.awt.Color;
+
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+
+//游戏入口类
+public class GameMain {
+	static final int WIDTH = 860;  //设置静态常量，作为状态值使用
+	static final int HEIGHT = 660;
+	public static void main(String[] args) {
+		JFrame jFrame = new JFrame();  //实例化顶级窗口类
+		jFrame.setSize(WIDTH, HEIGHT);  //设置宽高像素
+		jFrame.setTitle("小秃头历险记");  //设置标题
+		jFrame.setLocationRelativeTo(null);  //设置居中效果
+		//JFrame.EXIT_ON_CLOSE: 状态值  3
+		jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //关闭窗口的同时，把程序关闭
+		
+
+		//在窗口中，加入面板
+		MyPanel pl = new MyPanel();
+		pl.setBackground(Color.pink);
+		pl.setBorder(BorderFactory.createLineBorder(Color.cyan, 3));
+		jFrame.add(pl);  //添加面板组件
+		jFrame.addMouseMotionListener(pl);  //添加鼠标移动事件  
+		
+		jFrame.setVisible(true);  //使窗口可视化
+		
+		pl.init();  //在面板中循环将组件跑起来
+	}
+}
