@@ -1,0 +1,263 @@
+package  P;
+
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.sql.RowSetInternal;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+//xx.2
+//创建面板类，继承面板，实现移动监听事件
+public class MyPanel extends JPanel implements MouseMotionListener {
+	//private ImageIcon bjImage = new ImageIcon("img/bj.png");
+	
+	//英雄机图片
+	private ImageIcon heroImage = new ImageIcon("img/头.png"); 
+	
+	//显示logo
+	//private ImageIcon logoImage = new ImageIcon("img/头.png");
+	
+	//英雄机的宽高
+	private int width = heroImage.getIconWidth();
+	private int height = heroImage.getIconHeight();
+	
+	//英雄机的坐标
+	private int x=180;
+	private int y=880;
+	
+	//创建一个敌机的集合，用于展示多个敌机
+	List<Enemy> enemys = new ArrayList<>();
+	//存储子弹集合
+	List<Bullet> bullets = new ArrayList<>();
+	//存储爆炸对象集合
+	List<Bomb> bombs = new ArrayList<>();	
+	//存储英雄机爆炸集合
+	List<HeroDead> heroDeads = new ArrayList<>();
+	
+	private int number;//统计当前得分
+	private int m;//统计剩余血条量
+	
+//	MyPanel jp = new MyPanel() {
+//		{
+//			setBackground(Color.gray);// 设置面板背景颜色
+//		}
+
+	
+	
+	public MyPanel() {
+		//在构造方法中准备10个敌机
+		for(int i=0;i<10;i++){
+			enemys.add(new Enemy());
+		}
+	}
+	
+	@Override
+	public void paint(Graphics g) { //用于绘制图片区域
+		super.paint(g);
+		
+		//在窗口左侧展示打飞机得分
+		//设置字体： 参数1：字体家族， 参数2：字体样式：加粗   参数3：字体大小
+		g.setFont(new Font("宋体", Font.BOLD, 30));
+		g.drawString("当前得分:"+number, 5, 30);
+		g.drawString("发量(万根):"+(5-m), 5, 80);
+		//g.drawImage(null, x, y, getBackground(), getFocusCycleRootAncestor());
+		
+		//绘制英雄机图片  参数1，图片  参数2和3：坐标
+		g.drawImage(heroImage.getImage(), x, y, null);
+		
+		//g.drawImage(logoImage.getImage(), 19, 22, null);
+		
+		//在绘图中显示10辆敌机
+		for(int i=0;i<enemys.size();i++){
+			Enemy enemy =  enemys.get(i);  //获取敌机对象
+			enemy.drawImage(g);     //然后分别展示
+		}
+		
+		//展示子弹集合的图片
+		for (int i = 0; i < bullets.size(); i++) {
+			Bullet bullet = bullets.get(i);  //取出子弹对象
+			bullet.drawImage(g);
+		}
+		
+		//展示爆炸集合的图片
+		for(int i=0;i<bombs.size();i++){
+			Bomb bomb = bombs.get(i);
+			bomb.drawImage(g);
+		}
+		
+		//展示英雄机的销毁图片
+		for(int i=0;i<heroDeads.size();i++){
+			HeroDead heroDead = heroDeads.get(i);
+			heroDead.drawImage(g);
+		}
+		
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		//System.out.println("鼠标移动并拖拽触发");
+		
+		//鼠标拖拽时，需要将英雄机也带着移动(只需改变x轴和y轴)
+		x = e.getX()-width/2;  //英雄机的移动，随着鼠标触发移动的
+		y = e.getY()-height/2;  //鼠标指定到英雄机中间位置
+		
+		repaint();  //重新绘制图片
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		//System.out.println("鼠标移动的触发..");
+		
+		//鼠标移动时，需要将英雄机也带着移动(只需改变x轴和y轴)
+		x = e.getX()-width/2;  //英雄机的移动，随着鼠标触发移动的
+		y = e.getY()-height/2;  //鼠标指定到英雄机中间位置
+		
+		repaint();  //重新绘制图片
+	}
+
+	
+	
+	//L-4. 创建子弹类Bulet，操作与敌机类类似
+	public void init() {
+		//定义一个标记，循环了自定义的次数后，才去添加，这样子弹数量会变少
+		int flag = 0;
+		while(true) { //循环地跑，模拟依次移动的效果
+			flag++;  //
+			if(flag==50) {  //控制子弹数量
+				
+			  bullets.add(new Bullet(x+width/2, y)); //就是从英雄级的x，y轴位置发射子弹的
+			 
+			  flag=0;  //又回到0，依次计算15次
+			  //System.out.println("子弹数量:"+ bullets.size());
+			}
+						
+			//展示子弹，让子弹飞起来
+			for(int i=0;i<bullets.size();i++) {
+			 	Bullet bullet = bullets.get(i);  //取出对象
+			 	if(i%2!=0)//设置子弹左右发射
+			 	bullet.move();  
+			 	else
+			 	bullet.move1();//移动子弹位置
+			 	
+			 	
+			 	//如果子弹移动到y轴为0，则移除掉
+			 	if(bullet.getY()<0){
+			 		bullets.remove(bullet);  //移除子弹对象
+			 	}
+			}
+			
+			
+			
+			//xx.3.
+			//敌机循环移动..
+			for(int i=0;i<enemys.size();i++) {
+				Enemy en = enemys.get(i);
+				en.move();  //循环地移动每一架敌机y轴位置
+				
+				
+				//超出屏幕范围后，需要移除，并重新添加一个对象
+				if(en.getY()>GameMain.HEIGHT) {
+					//int count1=enemys.size();
+					enemys.remove(en);   //移除对象
+					
+					enemys.add(new Enemy());  //重新再创建对象
+				}
+				
+			//L 3-4	
+				//在敌机的循环中，再继续循环子弹； 需要判断是否有子弹和敌机重叠了，
+				//则移除敌机对象，重新添加，移除子弹；如果有则添加爆炸对象
+				for(int j=0;j<bullets.size();j++){
+					Bullet bu = bullets.get(j);
+					if(isHit(en,bu)){ //碰撞的判断
+						enemys.remove(en);  //移除敌机，并重新new一个
+						enemys.add(new Enemy());
+						
+						bullets.remove(bu);  //移除子弹
+						
+						//添加的爆炸位置和敌机位置一致
+						bombs.add(new Bomb(en.getX(), en.getY()));
+						
+						number += 10; //爆炸后，累加得分
+					}
+				}
+				
+				
+				
+				//zz-6
+				//判断英雄机与敌机的碰撞(英雄机的消亡)
+				if(isHit(en)){
+					System.out.println("进入英雄机爆炸...");
+					//敌机的对象移除
+					enemys.remove(en);
+					
+					//英雄机爆炸图片位置应该与英雄机重叠
+					heroDeads.add(new HeroDead(x, y));
+
+					for(m=0;m<=heroDeads.size();m++) {
+						while(heroDeads.size()==5) {
+							return; 
+						}
+					}
+					  //游戏结束，跳出死循环
+				}
+			}
+			
+			
+			//L-5
+			//将爆炸的所有对象，过一段时间则干掉
+			for(int i=0;i<bombs.size();i++){
+				Bomb bomb = bombs.get(i);
+				bomb.move();  //计算次数，统一循环多少次后，再干掉
+				
+				if(bomb.getCount()>6){
+					bombs.remove(bomb);  //在循环的一定范围后，可以移除爆炸了
+				}
+			}
+			
+			
+			
+			//xx.2
+			//每次的移动都需要停顿一下
+			try {
+				Thread.sleep(6);    //单位：毫秒  睡眠6毫秒
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} 
+			
+			repaint();  //重新绘制图片
+		}
+	}
+
+	
+	
+	
+	 //zz-6
+	 //英雄机与敌机的碰撞
+	private boolean isHit(Enemy en) {
+		//英雄机的碰撞区域
+		Rectangle rect = new Rectangle(x, y, width, height);
+		//碰撞点的位置，是在敌机的中心点
+		Point point = new Point(en.getX()+en.getWidth()/2, en.getY()+en.getHeight()/2);
+		
+		return rect.contains(point);
+	}
+
+	
+	
+	//L-5
+	private boolean isHit(Enemy en, Bullet bu) {
+		//填充敌机的碰撞区域
+		Rectangle rect = new Rectangle(en.getX(), en.getY(), en.getWidth(), en.getHeight());
+		//将子弹的位置设置在中间
+		Point point = new Point(bu.getX()+bu.getWidth()/2, bu.getY()+bu.getHeight()/2);
+		//如果位置有重叠，返回true
+		return rect.contains(point);
+	}
+}
+
