@@ -1,0 +1,79 @@
+package P;
+
+import java.awt.Graphics;
+
+import javax.swing.ImageIcon;
+
+//创建爆炸的实体了
+public class Bomb {
+	//爆炸的图片，宽高，位置属性
+	private ImageIcon bombImage=new ImageIcon("img/zz.png");
+	private int width = bombImage.getIconWidth();
+	private int height = bombImage.getIconHeight();
+	private int x;
+	private int y;
+	
+	private int count;  //记录多少次数后爆炸
+	
+	public ImageIcon getBombImage() {
+		return bombImage;
+	}
+
+	public void setBombImage(ImageIcon bombImage) {
+		this.bombImage = bombImage;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+	public Bomb(int x,int y){
+		this.x = x;
+		this.y = y;
+	}
+
+	public void drawImage(Graphics g) {
+		g.drawImage(bombImage.getImage(), x, y, null);
+	}
+
+	public void move() {
+		count++;
+	}
+	
+}
