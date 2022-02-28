@@ -1,0 +1,29 @@
+package sf;
+import java.io.IOException;
+	import java.util.Scanner;
+public class one {
+	
+	 
+	
+		 static long count;
+		public static void main(String[] args) throws NumberFormatException, IOException {
+				System.out.println("请输入盘子的个数：");
+				Scanner sc = new Scanner(System.in);
+		        int n = sc.nextInt();
+		        one hanoi = new one();
+		        hanoi.move(n, 'A', 'B', 'C');
+		        System.out.println(count);
+		}
+		public void move(int n, char a, char b, char c) {
+	        if (n == 1){
+	            System.out.println("盘 " + n + " 由 " + a + " 移至 " + c);//这道题 递归思想的第三步（最后一步）
+	        	count++;
+	        }else {
+	            move(n - 1, a, c, b);//这道题中递归思想的第一步
+	            System.out.println("盘 " + n + " 由 " + a + " 移至 " + c);
+	            count++;
+	            move(n - 1, b, a, c);//这道题中递归思想的第二步（倒数第二步）
+	        }
+	    }
+	}
+
