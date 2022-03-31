@@ -1,0 +1,29 @@
+package sf;
+
+public class Select {
+public static void main(String[] args) {
+	int[] array= new int[]{4,8,3,2,1};
+	int n=5;
+	Select sc=new Select();
+	sc.select(array, n);
+	for(int i=0;i<n;i++) {
+		System.out.print(array[i]+" ");
+	}
+}
+public void select(int[] array,int n) {
+	int i,j,index,temp;
+	for(i=0;i<n-1;i++) {
+		index=i;
+		for(j=i+1;j<n;j++) {
+			if(array[j]<array[index]) {
+				index=j;
+			}
+		}
+		if(index!=i) {
+			temp=array[i];
+			array[i]=array[index];
+			array[index]=temp;
+		}
+	}
+}
+}
